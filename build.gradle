@@ -1,48 +1,51 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.1.1'
-	id 'io.spring.dependency-management' version '1.1.0'
-	id 'com.vaadin' version '24.1.2'
+    id 'java'
+    id 'org.springframework.boot' version '3.1.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'com.vaadin' version '24.1.2'
+    id 'io.freefair.lombok' version "8.1.0"
 }
-
 group = 'bs.gomoku'
 version = '0.0.1-SNAPSHOT'
-
 java {
-	sourceCompatibility = '17'
+    sourceCompatibility = '17'
 }
-
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
-
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
-
 ext {
-	set('vaadinVersion', "24.1.2")
+    set('vaadinVersion', "24.1.2")
 }
-
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.vaadin:vaadin-spring-boot-starter'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.vaadin:vaadin-spring-boot-starter'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.7'
+    testImplementation 'org.projectlombok:lombok:1.18.26'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.7.0'
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
 }
-
 dependencyManagement {
-	imports {
-		mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
-	}
+    imports {
+        mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
+    }
 }
-
-tasks.named('test') {
-	useJUnitPlatform()
+test {
+    test {
+        useTestNG() {
+            suites("src/test/resources/UnitTests.xml")
+        }
+        testLogging {
+            events "PASSED", "FAILED", "SKIPPED"
+        }
+    }
 }
