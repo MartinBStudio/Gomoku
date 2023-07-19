@@ -1,4 +1,4 @@
-package bs.gomoku.core;
+package bs.gomoku;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
