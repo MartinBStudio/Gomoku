@@ -52,8 +52,7 @@ public class ApiComponent {
         }
 
         private JobsGame.Coords handleNewDumbCoords(JSONArray coordinates, String userId) {
-            List<JobsGame.Coords> usedCoords = Utils.getGameCoordsFromJsonArray(coordinates, userId);
-            return aiService.getNextCoords(usedCoords, 1);
+            return aiService.getNextDumbCoords();
         }
 
         protected void processResponse(JobsResponse pR) {

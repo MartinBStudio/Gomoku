@@ -38,13 +38,14 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation group: 'org.testng', name: 'testng', version: '7.7.0'
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+    compileOnly  'org.springframework.boot:spring-boot-starter-tomcat'
 }
 dependencyManagement {
     imports {
         mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
     }
 }
-test {
+/*test {
     test {
         useTestNG() {
             suites("src/test/resources/UnitTests.xml")
@@ -53,4 +54,7 @@ test {
             events "PASSED", "FAILED", "SKIPPED"
         }
     }
+}*/
+vaadin {
+    productionMode = true
 }

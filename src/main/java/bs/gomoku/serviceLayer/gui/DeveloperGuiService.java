@@ -23,11 +23,11 @@ public class DeveloperGuiService implements IUpdateLog {
     public void onLogUpdate(String content) {
         JLabel newLabel = new JLabel(content);
         logRecords.add(newLabel);
-      /*  if (!Gomoku.getHideDeveloperGui()) {
+        if (!Gomoku.getHideDeveloperGui()) {
             logPanel.add(newLabel, 0);
             logPanel.revalidate();
             logPanel.repaint();
-        }*/
+        }
     }
 
     static class MainWindow {
