@@ -3,12 +3,14 @@ package bs.gomoku.serviceLayer.api;
 import bs.gomoku.serviceLayer.api.jobsmodel.JobsRequest;
 import bs.gomoku.serviceLayer.events.listeners.ICreateProfile;
 import bs.gomoku.serviceLayer.profile.ProfileModel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static bs.gomoku.serviceLayer.api.jobsmodel.JobsRequest.Type.CREATE_PLAYER;
 
 @Service
+@Slf4j
 public class ApiService implements ICreateProfile {
 
     private final ApiComponent apiComponent;

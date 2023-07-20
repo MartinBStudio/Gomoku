@@ -15,6 +15,7 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import jakarta.annotation.security.PermitAll;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,7 @@ import static bs.gomoku.serviceLayer.gui.browserGui.Constants.PAGE_TITLE_PROFILE
 @Route(value = "profiles", layout = MainLayout.class)
 @PageTitle("Profiles | Gomoku")
 @PermitAll
+@Slf4j
 public class ProfileListView extends BaseView {
     Grid<ProfileModel> grid = new Grid<>(ProfileModel.class);
     TextField filterText = new TextField();

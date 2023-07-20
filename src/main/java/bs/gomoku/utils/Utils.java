@@ -6,6 +6,8 @@ import bs.gomoku.serviceLayer.knownUsers.KnownUsersService;
 import bs.gomoku.serviceLayer.logger.LogMessageModel;
 import bs.gomoku.serviceLayer.logger.LoggerService;
 import bs.gomoku.serviceLayer.profile.ProfileModel;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class Utils {
     public static final String MAIN_PROFILE_USER_ID = System.getenv("GOMOKU_MAIN_USER_TOKEN");
     private static LoggerService loggerService;
@@ -221,6 +224,7 @@ public class Utils {
                     return true;
                 }
             }
+
         }
         return false;
     }

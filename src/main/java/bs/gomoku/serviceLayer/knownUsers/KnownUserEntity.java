@@ -12,7 +12,7 @@ public class KnownUserEntity {
     @Column
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_knownUserSequence")
     @SequenceGenerator(name = "id_knownUserSequence", allocationSize = 1)
-    public String id;
+    public int id;
     public String userName;
     @Column(length = 100)
     public String userId;
