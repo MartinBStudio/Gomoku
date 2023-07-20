@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 public class KnownUserEntity {
     @Id
     @Column
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_Sequence")
-    @SequenceGenerator(name = "knownUser_sequence", sequenceName = "ID_SEQ")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_knownUserSequence")
+    @SequenceGenerator(name = "id_knownUserSequence", allocationSize = 1)
+    public String id;
     public String userName;
     @Column(length = 100)
     public String userId;

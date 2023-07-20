@@ -21,7 +21,7 @@ import java.util.List;
 
 @Service
 public class Utils {
-    public static final String MAIN_PROFILE_USER_ID = "d81517dc-95d8-4097-835c-c6ee2cfdbbc6";
+    public static final String MAIN_PROFILE_USER_ID = System.getenv("GOMOKU_MAIN_USER_TOKEN");
     private static LoggerService loggerService;
     private static KnownUsersService knownUsersService;
 
