@@ -1,7 +1,7 @@
 package bs.gomoku;
 
-import bs.gomoku.serviceLayer.gui.DeveloperGuiService;
-import bs.gomoku.serviceLayer.logger.LoggerService;
+import bs.gomoku.service.gui.DeveloperGuiService;
+import bs.gomoku.service.logger.LoggerService;
 import bs.gomoku.utils.Utils;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
@@ -11,7 +11,6 @@ import com.vaadin.flow.theme.Theme;
 import groovy.util.logging.Slf4j;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
