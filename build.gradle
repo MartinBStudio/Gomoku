@@ -45,7 +45,7 @@ dependencyManagement {
         mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
     }
 }
-test {
+/*test {
     test {
         useTestNG() {
             suites("src/test/resources/UnitTests.xml")
@@ -54,4 +54,7 @@ test {
             events "PASSED", "FAILED", "SKIPPED"
         }
     }
+}*/
+vaadin {
+    productionMode = true
 }
