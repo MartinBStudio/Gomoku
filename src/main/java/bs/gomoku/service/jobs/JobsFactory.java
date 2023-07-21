@@ -9,9 +9,7 @@ import bs.gomoku.service.logger.LoggerService;
 import bs.gomoku.service.profile.ProfileService;
 import bs.gomoku.utils.SAC;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.util.List;

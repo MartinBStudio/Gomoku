@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-
 import static bs.gomoku.service.gui.browserGui.Constants.PAGE_TITLE_PROFILES;
 
 
