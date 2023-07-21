@@ -19,7 +19,6 @@ import '@vaadin/checkbox/theme/lumo/vaadin-checkbox.js';
 import 'Frontend/generated/jar-resources/gridConnector.js';
 import '@vaadin/app-layout/theme/lumo/vaadin-drawer-toggle.js';
 import 'Frontend/generated/jar-resources/lit-renderer.ts';
-import '@vaadin/login/theme/lumo/vaadin-login-form.js';
 import '@vaadin/common-frontend/ConnectionIndicator.js';
 import '@vaadin/vaadin-lumo-styles/color-global.js';
 import '@vaadin/vaadin-lumo-styles/typography-global.js';
@@ -30,14 +29,14 @@ import '@vaadin/vaadin-lumo-styles/vaadin-iconset.js';
 
 const loadOnDemand = (key) => {
   const pending = [];
-  if (key === 'd197e71b89dce73b0def5e0d5e552b06b040b9fe90ce3f14882f3bec31d6cb3f') {
-    pending.push(import('./chunks/chunk-d197e71b89dce73b0def5e0d5e552b06b040b9fe90ce3f14882f3bec31d6cb3f.js'));
+  if (key === '596d574eb7052b72f8bcdca3a97159cab5e6f3ad08c7c465c84c1c622dd942eb') {
+    pending.push(import('./chunks/chunk-596d574eb7052b72f8bcdca3a97159cab5e6f3ad08c7c465c84c1c622dd942eb.js'));
   }
-  if (key === '981694c9f967d1fe9db0db25bc9cf3d9acdd862969018733b8aaeacc636a6c44') {
-    pending.push(import('./chunks/chunk-981694c9f967d1fe9db0db25bc9cf3d9acdd862969018733b8aaeacc636a6c44.js'));
+  if (key === 'd8618f7d40c9dda46178406be327e4e47b2fb9cd889ab8ae340f490a94b22d64') {
+    pending.push(import('./chunks/chunk-d8618f7d40c9dda46178406be327e4e47b2fb9cd889ab8ae340f490a94b22d64.js'));
   }
-  if (key === 'b46f2514fb97ade3b1e845594e9b8e229468c8686d54f509c19344d5b5733b89') {
-    pending.push(import('./chunks/chunk-b46f2514fb97ade3b1e845594e9b8e229468c8686d54f509c19344d5b5733b89.js'));
+  if (key === 'f87b08ae7fc9bad1463c38dbd32aee464c997489e7b4c79e950fcceb8c22b83d') {
+    pending.push(import('./chunks/chunk-f87b08ae7fc9bad1463c38dbd32aee464c997489e7b4c79e950fcceb8c22b83d.js'));
   }
   return Promise.all(pending);
 }

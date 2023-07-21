@@ -1,11 +1,11 @@
 package bs.gomoku.utils;
 
 import bs.gomoku.Gomoku;
-import bs.gomoku.serviceLayer.api.jobsmodel.JobsGame;
-import bs.gomoku.serviceLayer.knownUsers.KnownUsersService;
-import bs.gomoku.serviceLayer.logger.LogMessageModel;
-import bs.gomoku.serviceLayer.logger.LoggerService;
-import bs.gomoku.serviceLayer.profile.ProfileModel;
+import bs.gomoku.service.api.jobsmodel.JobsGame;
+import bs.gomoku.service.knownUsers.KnownUsersService;
+import bs.gomoku.service.logger.LogMessageModel;
+import bs.gomoku.service.logger.LoggerService;
+import bs.gomoku.service.profile.ProfileModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONArray;

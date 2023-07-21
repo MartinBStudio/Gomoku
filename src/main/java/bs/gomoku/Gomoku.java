@@ -1,8 +1,6 @@
 package bs.gomoku;
 
-import bs.gomoku.serviceLayer.gui.DeveloperGuiService;
-import bs.gomoku.serviceLayer.logger.LoggerService;
-import bs.gomoku.utils.Utils;
+import bs.gomoku.service.logger.LoggerService;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.component.page.Push;
@@ -11,7 +9,6 @@ import com.vaadin.flow.theme.Theme;
 import groovy.util.logging.Slf4j;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -42,26 +39,19 @@ public class Gomoku extends SpringBootServletInitializer implements CommandLineR
     @Getter
     private static final Boolean isDebugMode = false;
     @Getter
-    private static final Boolean hideDeveloperGui = false;
-    @Getter
     private static LocalDateTime startDateTime;
 
-    private final DeveloperGuiService guiService;
     private final LoggerService loggerService;
     private final Environment environment;
 
 
     public static void main(String[] args) {
-        Utils.setSystemProperties();
         startDateTime = LocalDateTime.now();
         SpringApplication.run(Gomoku.class, args);
     }
 
     @Override
     public void run(String... args) {
-        if (!hideDeveloperGui) {
-            guiService.start();
-        }
         loggerService.info(List.of("Application started on port", environment.getProperty("local.server.port")));
     }
 }
