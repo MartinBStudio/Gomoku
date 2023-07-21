@@ -1,6 +1,5 @@
 package bs.gomoku.service.gui.browserGui.views;
 
-import bs.gomoku.service.gui.browserGui.security.SecurityService;
 import bs.gomoku.service.gui.browserGui.views.dashboard.DashboardView;
 import bs.gomoku.service.gui.browserGui.views.knownusers.KnownUsersView;
 import bs.gomoku.service.gui.browserGui.views.log.LogListView;
@@ -17,11 +16,10 @@ import com.vaadin.flow.router.RouterLink;
 import static bs.gomoku.service.gui.browserGui.Constants.*;
 
 public class MainLayout extends AppLayout {
-    private final SecurityService securityService;
+
     VerticalLayout vL = new VerticalLayout();
 
-    public MainLayout(SecurityService securityService) {
-        this.securityService = securityService;
+    public MainLayout( ) {
         createHeader();
         createDrawer();
         addToDrawer(vL);
@@ -31,9 +29,8 @@ public class MainLayout extends AppLayout {
         H1 logo = new H1("Gomoku AI");
         logo.addClassNames("text-l", "m-m");
 
-        Button logout = new Button("Log out", e -> securityService.logout());
 
-        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, logout);
+        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
 
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(logo);
