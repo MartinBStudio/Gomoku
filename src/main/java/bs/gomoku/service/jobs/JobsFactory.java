@@ -18,7 +18,7 @@ import java.util.List;
 
 import static java.lang.Thread.sleep;
 
-@Component
+
 public class JobsFactory<V, Number> extends SwingWorker<Void, Integer> implements INotifier {
     protected Integer maximumChunks;
     ProfileService profileService;

@@ -41,7 +41,7 @@ public class Gomoku extends SpringBootServletInitializer implements CommandLineR
     @Getter
     private static final Boolean isDebugMode = false;
     @Getter
-    private static final Boolean hideDeveloperGui = false;
+    private static final Boolean hideDeveloperGui = true;
     @Getter
     private static LocalDateTime startDateTime;
 
