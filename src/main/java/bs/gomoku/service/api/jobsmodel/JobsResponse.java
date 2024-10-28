@@ -2,13 +2,15 @@ package bs.gomoku.service.api.jobsmodel;
 
 import bs.gomoku.Gomoku;
 import bs.gomoku.service.logger.LoggerService;
+import bs.gomoku.utils.IBeanProvider;
 import bs.gomoku.utils.SAC;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
 import java.util.List;
 
-public class JobsResponse {
+
+public class JobsResponse implements IBeanProvider {
 
     public int statusCode;
     public JobsRequest request;
@@ -20,7 +22,7 @@ public class JobsResponse {
         this.request = request;
 
         if (Gomoku.getIsDebugMode()) {
-            SAC.getBean(LoggerService.class).info(List.of("Response", String.valueOf(jsonResponse)));
+            getBean(LoggerService.class).info(List.of("Response", String.valueOf(jsonResponse)));
         }
     }
 }

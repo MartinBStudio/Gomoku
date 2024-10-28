@@ -7,6 +7,7 @@ import bs.gomoku.service.api.jobsmodel.JobsRequest;
 import bs.gomoku.service.events.INotifier;
 import bs.gomoku.service.logger.LoggerService;
 import bs.gomoku.service.profile.ProfileService;
+import bs.gomoku.utils.IBeanProvider;
 import bs.gomoku.utils.SAC;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,7 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 
-public class JobsFactory<V, Number> extends SwingWorker<Void, Integer> implements INotifier {
+public class JobsFactory<V, Number> extends SwingWorker<Void, Integer> implements INotifier, IBeanProvider {
     protected Integer maximumChunks;
     ProfileService profileService;
     LoggerService loggerService;
@@ -34,9 +35,9 @@ public class JobsFactory<V, Number> extends SwingWorker<Void, Integer> implement
     JobsFactory<V, Number> init(Type type, String userEmail, Boolean autoRestart) {
         this.autoRestart = autoRestart;
         this.userEmail = userEmail;
-        profileService = SAC.getBean(ProfileService.class);
-        apiService = SAC.getBean(ApiService.class);
-        loggerService = SAC.getBean(LoggerService.class);
+        profileService = getBean(ProfileService.class);
+        apiService = getBean(ApiService.class);
+        loggerService = getBean(LoggerService.class);
         loggerService.info(List.of("Job started", userEmail, "Auto restart", autoRestart));
 
         this.maximumChunks =
@@ -100,7 +101,7 @@ public class JobsFactory<V, Number> extends SwingWorker<Void, Integer> implement
                     apiService.makeApiRequest(request);
                 }
             } else {
-                SAC.getBean(LoggerService.class).info(game.getStatus());
+                getBean(LoggerService.class).info(game.getStatus());
             }
             publish(profileService.totalProfileGameLives(userEmail));
             sleep(3000);

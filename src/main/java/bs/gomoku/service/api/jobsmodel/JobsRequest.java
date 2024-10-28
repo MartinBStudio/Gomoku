@@ -4,13 +4,14 @@ import bs.gomoku.Gomoku;
 import bs.gomoku.service.logger.LoggerService;
 import bs.gomoku.service.profile.ProfileModel;
 import bs.gomoku.service.profile.ProfileService;
+import bs.gomoku.utils.IBeanProvider;
 import bs.gomoku.utils.SAC;
 import lombok.Getter;
 import org.json.JSONObject;
 
 import java.util.List;
 
-public class JobsRequest {
+public class JobsRequest implements IBeanProvider {
 
     public String endpointURL;
     public String userEmail;
@@ -21,7 +22,7 @@ public class JobsRequest {
 
     public JobsRequest(Type type, JobsGame game, String userEmail) {
         this.userEmail = userEmail;
-        ProfileModel profile = SAC.getBean(ProfileService.class).loadProfile(userEmail);
+        ProfileModel profile = getBean(ProfileService.class).loadProfile(userEmail);
         if (type.equals(Type.CHECK_STATUS)) {
             endpointURL = URLs.checkStatus;
             jsonPayload.put("userToken", profile.getUserToken());
@@ -65,7 +66,7 @@ public class JobsRequest {
 
     private void displayRequest(JSONObject request) {
         if (Gomoku.getIsDebugMode()) {
-            var loggerService = SAC.getBean(LoggerService.class);
+            var loggerService = getBean(LoggerService.class);
             loggerService.info(String.valueOf(request));
         }
     }

@@ -30,8 +30,8 @@ public class ProfileService {
         return profileComponent.getProfilesFromDb(searchTerm);
     }
 
-    public String createNewProfile(String password, String guiEmail) {
-        return profileComponent.createNewProfile(password, guiEmail);
+    public String createNewProfile(String guiEmail) {
+        return profileComponent.createNewProfile(guiEmail);
     }
 
     public void saveCreatedProfile(ProfileModel profileModel) {

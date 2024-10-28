@@ -54,7 +54,7 @@ public class ProfileListView extends BaseView {
     private void addGrid() {
         grid.addClassNames("contact-grid");
         grid.setSizeFull();
-        grid.setColumns("userMail", "won", "lost", "abandoned", "winrate", "inprogress");
+        grid.setColumns("userMail", "won", "lost", "abandoned", "winrate", "inprogress","isMain");
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
         addForm();
         FlexLayout content = new FlexLayout(grid, form);
@@ -101,7 +101,7 @@ public class ProfileListView extends BaseView {
     }
 
     private void saveProfile(ProfileForm.SaveEvent event) {
-        profileService.createNewProfile("Vaadin", event.getProfile().getUserMail());
+        profileService.createNewProfile( event.getProfile().getUserMail());
         update();
         closeEditor();
     }

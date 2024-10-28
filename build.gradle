@@ -43,16 +43,10 @@ dependencyManagement {
         mavenBom "com.vaadin:vaadin-bom:${vaadinVersion}"
     }
 }
-/*test {
-    test {
-        useTestNG() {
-            suites("src/test/resources/UnitTests.xml")
-        }
-        testLogging {
-            events "PASSED", "FAILED", "SKIPPED"
-        }
-    }
-}*/
+
 vaadin {
     productionMode = true
+}
+tasks.named('bootJar') {
+    archiveFileName = 'gomoku.jar'
 }

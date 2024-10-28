@@ -29,7 +29,7 @@ public class ProfileComponent implements IUpdateProfile, INotifier {
         this.knownUsersService = knownUsersService;
     }
 
-    String createNewProfile(String password, String guiEmail) {
+    String createNewProfile(String guiEmail) {
         if (isPresent(guiEmail)) {
             return "User already exists: " + guiEmail;
         } else {
@@ -37,7 +37,6 @@ public class ProfileComponent implements IUpdateProfile, INotifier {
             notify(Type.CREATE_PROFILE, ProfileModel.builder()
                     .userName(separatedUsername[0])
                     .userMail(guiEmail)
-                    .password(password)
                     .games(new ArrayList<>())
                     .build());
             return "Trying create new profile: " + guiEmail;
@@ -65,7 +64,6 @@ public class ProfileComponent implements IUpdateProfile, INotifier {
         ProfileEntity profileEntity = new ProfileEntity();
         profileEntity.profileString = new Gson().toJson(profileModel);
         profileEntity.userMail = profileModel.getUserMail();
-        profileEntity.password = profileModel.getPassword();
         knownUsersService.deleteExistingKnownUser(profileModel);
         profileRepository.delete(profileEntity);
     }
@@ -74,7 +72,6 @@ public class ProfileComponent implements IUpdateProfile, INotifier {
         ProfileEntity profileEntity = new ProfileEntity();
         profileEntity.profileString = new Gson().toJson(profileModel);
         profileEntity.userMail = profileModel.getUserMail();
-        profileEntity.password = profileModel.getPassword();
         profileRepository.save(profileEntity);
         loggerService.info(List.of("Profile saved to DB", profileModel.getUserMail()));
         knownUsersService.saveNewKnownUser(new KnownUserEntity(profileModel.getUserName(), profileModel.getUserId()));

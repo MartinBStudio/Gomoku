@@ -2,12 +2,13 @@ package bs.gomoku.service.ai;
 
 import bs.gomoku.Gomoku;
 import bs.gomoku.service.logger.LoggerService;
+import bs.gomoku.utils.IBeanProvider;
 import bs.gomoku.utils.SAC;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinmaxComponent {
+public class MinmaxComponent implements IBeanProvider {
 
     // Win score should be greater than all possible board scores
     private static final int winScore = 100000000;
@@ -488,7 +489,7 @@ public class MinmaxComponent {
             }
         }
         if (Gomoku.getIsDebugMode()) {
-            SAC.getBean(LoggerService.class).info(
+            getBean(LoggerService.class).info(
                     List.of(
                             "Cases calculated",
                             evaluationCount,

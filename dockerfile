@@ -1,9 +1,12 @@
-FROM openjdk:17
-ENV ARTIFACT_NAME=001.jar
-ENV GOMOKU_DB_PW=TestingPassword012023
-ENV GOMOKU_DB_USER=Gomoku
-ENV GOMOKU_MAIN_USER_TOKEN=6e64bceb-dd49-4a7e-a431-7c8f681bea64
-ENV BSTUDIO_DB_URL=jdbc:oracle:thin:@192.168.1.4:1522:xe
-COPY /*.jar ./$ARTIFACT_NAME
+# GENERAL ENV
+ENV ARTIFACT_NAME=gomoku.jar
+ENV DATABASE_PASSWORD=VALUE_NOT_SET
+ENV DATABASE_USERNAME=VALUE_NOT_SET
+ENV DATABASE_CS=VALUE_NOT_SET
+ENV SERVER_PORT=5000
+# Copy the jar file from the build/libs directory
+COPY build/libs/$ARTIFACT_NAME /$ARTIFACT_NAME
+# Set the maintainer label
 LABEL maintainer="Martin Masika <martin.masika@icloud.com>"
-CMD ["java","-jar","001.jar"]
+# Run the jar file using the ARTIFACT_NAME variable
+CMD ["sh", "-c", "java -jar /$ARTIFACT_NAME"]

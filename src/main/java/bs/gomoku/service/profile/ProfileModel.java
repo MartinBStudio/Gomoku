@@ -18,13 +18,13 @@ public class ProfileModel {
     @Builder.Default
     private String userMail = "userMail";
     @Builder.Default
-    private String password = "";
-    @Builder.Default
-    private String userToken = "null";
+    private String userToken = "useToken";
     @Builder.Default
     private String userId = "userId";
     @Builder.Default
     private int maximumGames = 2;
+    @Builder.Default
+    private Boolean isMain = false;
     @Builder.Default
     private Integer won = 0;
     @Builder.Default

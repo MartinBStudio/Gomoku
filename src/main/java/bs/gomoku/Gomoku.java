@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 
 @EnableTransactionManagement
@@ -52,6 +53,6 @@ public class Gomoku extends SpringBootServletInitializer implements CommandLineR
 
     @Override
     public void run(String... args) {
-        loggerService.info(List.of("Application started on port", environment.getProperty("local.server.port")));
+        loggerService.info(List.of("Application started on port", Objects.requireNonNull(environment.getProperty("local.server.port"))));
     }
 }

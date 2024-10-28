@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
+@Table(name="KNOWN_USERS")
 public class KnownUserEntity {
     @Id
     @Column
